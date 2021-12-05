@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Coming Soon</title>
+        <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+        <div class="content"> 
+        <h3 class="title">We Are Coming Soon!</h3>
+        <p class="description">
+        聖誕節即將倒來我們將有個特殊活動在聖誕節舉行期待活動的開始吧!
+        </p>
+        <div class="content-down">
+            <div class="box">
+                <h3 id="days">00</h3>
+                <p>DAYS</p>
+            </div>
+            <div class="box">
+                <h3 id="Hours">00</h3>
+                <p>Hours</p>
+            </div>
+            <div class="box">
+                <h3 id="Minute">00</h3>
+                <p>Minute</p>
+            </div>
+            <div class="box">
+                <h3 id="Second">00</h3>
+                <p>Second</p>
+            </div>
+            
+        </div><br>
+         <a class="btn" href="home.html">點我</a>
+        </div>
+
+
+</div>
+</div>
+<script>
+function Creatsnow(){
+    let container=document.querySelector('.container')
+    let span=document.createElement('span')
+    span.style.left=Math.random()*innerWidth+'px';
+    container.appendChild(span);
+    setTimeout(()=>{
+        span.remove();
+    },5000 )
+
+}
+// counte time
+setInterval(Creatsnow,100);
+
+ 
+function CouteDown()
+{
+
+
+
+    var counteData = new Date("12/25/2021");
+    var now = new Date();
+
+    var gap = counteData.getTime()-now.getTime();
+    
+    let Second=1000;
+    let Minute=Second*60;
+    let Hours=Minute*60;
+    let DAYS=Hours*24; //days=  60 *60 * 24 * 1000
+
+    let d=Math.floor(gap/(DAYS));
+    let h=Math.floor(gap%(DAYS)/(Hours));
+    let m=Math.floor(gap%(Hours)/(Minute));
+    let s=Math.floor(gap%(Minute)/(Second));
+
+    document.getElementById('days').innerText=d;
+    document.getElementById('Hours').innerText=h;
+    document.getElementById('Minute').innerText=m;
+    document.getElementById('Second').innerText=s;
+    
+
+
+}
+setInterval( CouteDown, 100)
+</script>
+  </body>
+</html>
